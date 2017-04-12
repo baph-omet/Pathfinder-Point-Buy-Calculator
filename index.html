@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pathfinder Point Buy Calculator</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<h1>Pathfinder Point Buy Calculator</h1>
+			<table>
+				<tr>
+					<th>Level</th>
+					<th>Max Points</th>
+				</tr>
+				<tr>
+					<td>Low Fantasy</td>
+					<td>10</td>
+				</tr>
+				<tr>
+					<td>Standard Fantasy</td>
+					<td>15</td>
+				</tr>
+				<tr>
+					<td>High Fantasy</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>Epic Fantasy</td>
+					<td>25</td>
+				</tr>
+			</table>
+			<div>
+				Race:
+				<select id="raceSelector" name="race" onchange="ApplyRacialMod()">
+					<option value="human">Human (+2 to any ability)</option>
+					<option value="halfelf">Half-Elf (+2 to any ability)</option>
+					<option value="halforc">Half-Orc (+2 to any ability)</option>
+					<option value="elf">Elf</option>
+					<option value="dwarf">Dwarf</option>
+					<option value="halfling">Halfling</option>
+					<option value="gnome">Gnome</option>
+					<option value="other">Other</option>
+				</select>
+			</div>
+			<table id="abilities">
+				<tr>
+					<th>Ability</th>
+					<th>Purchased</th>
+					<th>Raw Mod</th>
+					<th>Racial Mod</th>
+					<th>Total</th>
+					<th>Total Mod</th>
+				</tr>
+				<tr>
+					<td>Strength</td>
+					<td>
+						<select name="raw" onchange="PurchaseChange();">
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10" selected>10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+						</select>
+					</td>
+					<td class="rawmod">0</td>
+					<td>
+						<input onClick="this.select();" onchange="CalculateTotalValues();" type="number" id="strracemod" name="racemod" value="0"/>
+					</td>
+					<td class="total">10</td>
+					<td class="totalmod">0</td>
+				</tr>
+				<tr>
+					<td>Dexterity</td>
+					<td>
+						<select name="raw" onchange="PurchaseChange();">
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10" selected>10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+						</select>
+					</td>
+					<td class="rawmod">0</td>
+					<td>
+						<input onClick="this.select();" onchange="CalculateTotalValues();" type="number" id="dexracemod" name="racemod" value="0"/>
+					</td>
+					<td class="total">10</td>
+					<td class="totalmod">0</td>
+				</tr>
+				<tr>
+					<td>Constitution</td>
+					<td>
+						<select name="raw" onchange="PurchaseChange();">
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10" selected>10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+						</select>
+					</td>
+					<td class="rawmod">0</td>
+					<td>
+						<input onClick="this.select();" onchange="CalculateTotalValues();" type="number" id="conracemod" name="racemod" value="0"/>
+					</td>
+					<td class="total">10</td>
+					<td class="totalmod">0</td>
+				</tr>
+				<tr>
+					<td>Intelligence</td>
+					<td>
+						<select name="raw" onchange="PurchaseChange();">
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10" selected>10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+						</select>
+					</td>
+					<td class="rawmod">0</td>
+					<td>
+						<input onClick="this.select();" onchange="CalculateTotalValues();" type="number" id="intracemod" name="racemod" value="0"/>
+					</td>
+					<td class="total">10</td>
+					<td class="totalmod">0</td>
+				</tr>
+				<tr>
+					<td>Wisdom</td>
+					<td>
+						<select name="raw" onchange="PurchaseChange();">
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10" selected>10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+						</select>
+					</td>
+					<td class="rawmod">0</td>
+					<td>
+						<input onClick="this.select();" onchange="CalculateTotalValues();" type="number" id="wisracemod" name="racemod" value="0"/>
+					</td>
+					<td class="total">10</td>
+					<td class="totalmod">0</td>
+				</tr>
+				<tr>
+					<td>Charisma</td>
+					<td>
+						<select name="raw" onchange="PurchaseChange();">
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10" selected>10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+						</select>
+					</td>
+					<td class="rawmod">0</td>
+					<td>
+						<input onClick="this.select();" onchange="CalculateTotalValues();" type="number" id="characemod" name="racemod" value="0"/>
+					</td>
+					<td class="total">10</td>
+					<td class="totalmod">0</td>
+				</tr>
+			</table>
+			<p>Total Points: <span id="pointTotal">0</span></p>
+			<input onClick="this.select();" type="text" id="printout" name="printout" value="STR: 10 DEX: 10 CON: 10 INT: 10 WIS: 10 CHA: 10" readonly="true"/>
+		</div>
+	</body>

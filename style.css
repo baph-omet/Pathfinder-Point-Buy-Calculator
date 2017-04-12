@@ -1,0 +1,42 @@
+* {
+	font-family:monospace;
+}
+
+body {
+	background-color:#333;
+}
+
+#main {
+	width:500px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	background-color:#ddd;
+	padding-bottom:20px;
+	border-radius: 10px;
+}
+
+table {
+	margin: 10px auto;
+	border-spacing: 0;
+}
+
+table input {
+	width: 30px;
+	text-align:center;
+}
+
+tr > *:first-child {
+	text-align:right;
+	font-weight:bold;
+}
+
+td, th {
+	padding:5px;
+	border-bottom: 1px solid black;
+}
+
+#printout  {
+	width:350px;
+	text-align:center;
+}
