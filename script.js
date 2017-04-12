@@ -53,6 +53,7 @@ function CalculateTotalValues() {
 		document.getElementsByClassName("total")[i].innerText = total;
 	}
 	CalculateModifiers();
+	SetPrintout();
 }
 
 function GetMod(score) {
@@ -90,4 +91,12 @@ function CalculateTotalPoints() {
 function PurchaseChange() {
 	CalculateTotalValues();
 	CalculateTotalPoints();
+}
+
+function SetPrintout() {
+	var text = "";
+  for (var i = 0; i < abilities.length; i++) {
+  	text += abilities[i] + ": " + document.getElementsByClassName("total")[i].innerText + " ";
+  }
+	document.getElementById("printout").value = text;
 }
