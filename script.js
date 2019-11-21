@@ -49,7 +49,6 @@ function CalculateTotalValues() {
 		var total = 
 			parseInt(document.getElementsByName("raw")[i].value) 
 			+ parseInt(document.getElementsByName("racemod")[i].value);
-		
 		document.getElementsByClassName("total")[i].innerText = total;
 	}
 	CalculateModifiers();
@@ -71,15 +70,14 @@ function CalculateModifiers() {
 
 function GetPointCost(score) {
 	if (score == 7) return -4;
-	if (score > 7 && score < 14) return score - 10;
+	if (score < 14) return score - 10;
 	switch (score) {
 		case 14: return 5;
 		case 15: return 7;
 		case 16: return 10;
 		case 17: return 13;
 		case 18: return 17;
-	}
-	return NaN;
+	} return NaN;
 }
 
 function CalculateTotalPoints() {
@@ -95,8 +93,7 @@ function PurchaseChange() {
 
 function SetPrintout() {
 	var text = "";
-	for (var i = 0; i < abilities.length; i++) {
+	for (var i = 0; i < abilities.length; i++)
 		text += abilities[i] + ": " + document.getElementsByClassName("total")[i].innerText + " ";
-	}
 	document.getElementById("printout").value = text;
 }
