@@ -95,8 +95,8 @@ function PurchaseChange() {
 
 function SetPrintout() {
 	var text = "";
-  for (var i = 0; i < abilities.length; i++) {
-  	text += abilities[i] + ": " + document.getElementsByClassName("total")[i].innerText + " ";
-  }
+	for (var i = 0; i < abilities.length; i++) {
+		text += abilities[i] + ": " + document.getElementsByClassName("total")[i].innerText + " ";
+	}
 	document.getElementById("printout").value = text;
 }
