@@ -5,7 +5,7 @@ var races = {
 	halfling: [-2,2,0,0,0,2],
 	gnome: [-2,0,2,0,0,2],
 	aasimar: [0,0,0,0,2,2],
-    	tiefling: [0,2,0,2,0,-2],
+    tiefling: [0,2,0,2,0,-2],
 	catfolk: [0,2,0,0,-2,2],
 	changeling: [0,0,-2,0,2,2],
 	dhampir: [0,2,-2,0,0,2],

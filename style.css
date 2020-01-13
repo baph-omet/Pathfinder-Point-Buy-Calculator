@@ -1,5 +1,15 @@
 * {
-	font-family:monospace;
+	font-family: 'Roboto', sans-serif;
+	font-size: 9pt;
+}
+
+h1 {
+	font-family: 'UnifrakturCook', cursive;
+	font-size:28pt;
+	margin-bottom:0px;
+	background-color:#dcc23c;
+	border-radius:10px 10px 0 0;
+	border-bottom: 2px solid #555;
 }
 
 body {
@@ -12,12 +22,12 @@ body {
 	margin-right:auto;
 	text-align:center;
 	background-color:#ddd;
-	padding-bottom:20px;
+	padding-bottom:1px;
 	border-radius: 10px;
 }
 
 table {
-	margin: 10px auto;
+	margin: 20px auto;
 	border-spacing: 0;
 }
 
@@ -32,11 +42,38 @@ tr > *:first-child {
 }
 
 td, th {
-	padding:5px;
+	padding:5px 10px 5px 10px;
 	border-bottom: 1px solid black;
 }
 
+th {
+	text-transform: uppercase;
+}
+
+.total {
+	background-color:#eee;
+}
+
+.total, .totalmod {
+	font-weight: bold;
+}
+
+.rawmod {
+	color: #777;
+}
+
+.totalmod, .rawmod {
+	font-style: italic;
+}
+
 #printout  {
-	width:350px;
-	text-align:center;
+	width: 300px;
+	text-align: center;
+}
+
+p img {
+	display:inline;
+	width:24px;
+	height:auto;
+	vertical-align:middle;
 }

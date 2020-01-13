@@ -3,6 +3,7 @@
 	<head>
 		<title>Pathfinder Point Buy Calculator</title>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Roboto|UnifrakturCook:700&display=swap" rel="stylesheet">
 		<script src="script.js"></script>
 	</head>
 	<body>
@@ -83,11 +84,11 @@
 			<table id="abilities">
 				<tr>
 					<th>Ability</th>
-					<th>Purchased</th>
+					<th>Purchased Score</th>
 					<th>Raw Mod</th>
-					<th>Racial Mod</th>
-					<th>Total</th>
-					<th>Total Mod</th>
+					<th>Racial Bonus</th>
+					<th>Total Score</th>
+					<th>Final Mod</th>
 				</tr>
 				<tr>
 					<td>Strength</td>
@@ -241,8 +242,8 @@
 				</tr>
 			</table>
 			<p>Total Points: <span id="pointTotal">0</span></p>
-			<input onClick="this.select();" type="text" id="printout" name="printout" value="STR: 10 DEX: 10 CON: 10 INT: 10 WIS: 10 CHA: 10" readonly="true"/>
-			<p><a href="https://github.com/griffenx/Pathfinder-Point-Buy-Calculator">Source</a> | Made by Sarah 😈 (<a href="https://iamvishnu.net">IAMVISHNU</a>)</p>
-
+			<input onClick="this.select();" title="Click to select!" type="text" id="printout" name="printout" value="STR: 10 DEX: 10 CON: 10 INT: 10 WIS: 10 CHA: 10" readonly/>
+			<p><a href="https://github.com/iamvishnu-media/Pathfinder-Point-Buy-Calculator"><img src="github.png" />Source</a> | Made by Sarah 😈 (<a href="https://iamvishnu.net">IAMVISHNU</a>)</p>
 		</div>
 	</body>
+</html>
