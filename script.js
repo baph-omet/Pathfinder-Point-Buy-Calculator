@@ -72,7 +72,9 @@ function CalculateTotalValues() {
 }
 
 function GetMod(score) {
-	return Math.floor((score - 10) / 2);
+	var mod = Math.floor((score - 10) / 2);
+	if (mod > 0) mod = "+" + mod;
+	return mod.toString();
 }
 
 function CalculateModifiers() {

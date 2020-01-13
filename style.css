@@ -4,12 +4,19 @@
 }
 
 h1 {
-	font-family: 'UnifrakturCook', cursive;
 	font-size:28pt;
-	margin-bottom:0px;
 	background-color:#dcc23c;
-	border-radius:10px 10px 0 0;
+	border-radius: 8px 8px 0 0;
 	border-bottom: 2px solid #555;
+}
+
+h2 {
+	font-size:14pt;
+}
+
+h1, h2 {
+	font-family: 'UnifrakturCook', cursive;
+	margin: 0;
 }
 
 body {
@@ -17,18 +24,21 @@ body {
 }
 
 #main {
-	width:500px;
-	margin-left:auto;
-	margin-right:auto;
-	text-align:center;
-	background-color:#ddd;
-	padding-bottom:1px;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background-color: #ddd;
+	padding-bottom: 1px;
 	border-radius: 10px;
+	border: 2px solid black;
+	box-shadow: black 0px 0px 3px 0px;
 }
 
 table {
 	margin: 20px auto;
 	border-spacing: 0;
+	border-top: 1px solid black;
 }
 
 table input {
@@ -36,9 +46,10 @@ table input {
 	text-align:center;
 }
 
-tr > *:first-child {
-	text-align:right;
-	font-weight:bold;
+td:first-child {
+	text-align: right;
+	font-weight: bold;
+	background-color: #ccc;
 }
 
 td, th {
@@ -48,6 +59,7 @@ td, th {
 
 th {
 	text-transform: uppercase;
+	background-color: #aaa;
 }
 
 .total {
@@ -76,4 +88,30 @@ p img {
 	width:24px;
 	height:auto;
 	vertical-align:middle;
+}
+
+#footer {
+	background-color: #222;
+	color: #aaa;
+	margin-bottom: -1px;
+	margin-top: 10px;
+	border-radius: 0 0 7px 7px;
+	padding: 10px;
+}
+
+#footer a {
+	color:#ccc;
+}
+
+#footer p {
+	margin: 1px;
+}
+
+#footer img {
+	filter: invert(100%);
+}
+
+#copyright, #copyright a {
+	color: #777;
+	font-style: italic;
 }

@@ -3,7 +3,8 @@
 	<head>
 		<title>Pathfinder Point Buy Calculator</title>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<link href="https://fonts.googleapis.com/css?family=Roboto|UnifrakturCook:700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto|UnifrakturCook:700&display=swap" rel="stylesheet"/>
+		<link rel="shortcut icon" href="favicon.png"/>
 		<script src="script.js"></script>
 	</head>
 	<body>
@@ -32,7 +33,7 @@
 				</tr>
 			</table>
 			<div>
-				Race:
+				<h2>Race:</h2>
 				<select id="raceSelector" name="race" onchange="ApplyRacialMod()">
 					<option value="other">Custom</option>
 					<optgroup label="Core Races">
@@ -85,14 +86,15 @@
 				<tr>
 					<th>Ability</th>
 					<th>Purchased Score</th>
-					<th>Raw Mod</th>
+					<th>Raw Modifier</th>
 					<th>Racial Bonus</th>
 					<th>Total Score</th>
-					<th>Final Mod</th>
+					<th>Final Modifier</th>
 				</tr>
 				<tr>
 					<td>Strength</td>
 					<td>
+						<!--<input onclick="this.select();" onchange="PurchaseChange();" type="number" name="raw" value="10" min="7" max="18"/>-->
 						<select name="raw" onchange="PurchaseChange();">
 							<option value="7">7</option>
 							<option value="8">8</option>
@@ -243,7 +245,10 @@
 			</table>
 			<p>Total Points: <span id="pointTotal">0</span></p>
 			<input onClick="this.select();" title="Click to select!" type="text" id="printout" name="printout" value="STR: 10 DEX: 10 CON: 10 INT: 10 WIS: 10 CHA: 10" readonly/>
-			<p><a href="https://github.com/iamvishnu-media/Pathfinder-Point-Buy-Calculator"><img src="github.png" />Source</a> | Made by Sarah 😈 (<a href="https://iamvishnu.net">IAMVISHNU</a>)</p>
+            <div id="footer">
+                <p><a href="https://github.com/iamvishnu-media/Pathfinder-Point-Buy-Calculator"><img src="github.png" />Source</a> | Made by Sarah 😈 (<a href="https://iamvishnu.net">IAMVISHNU</a>)</p>
+                <p id="copyright">Pathfinder and associated names are &copy; <a href="https://paizo.com">Paizo Inc.</a></p>
+            </div>
 		</div>
 	</body>
 </html>
