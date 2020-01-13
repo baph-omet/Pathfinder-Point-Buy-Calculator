@@ -33,13 +33,50 @@
 			<div>
 				Race:
 				<select id="raceSelector" name="race" onchange="ApplyRacialMod()">
-					<option value="human">Human (+2 to any ability)</option>
-					<option value="halfelf">Half-Elf (+2 to any ability)</option>
-					<option value="halforc">Half-Orc (+2 to any ability)</option>
-					<option value="elf">Elf</option>
-					<option value="dwarf">Dwarf</option>
-					<option value="halfling">Halfling</option>
-					<option value="gnome">Gnome</option>
+					<optgroup label="Core Races">
+						<option value="human">Human (+2 to any one ability)</option>
+						<option value="halfelf">Half-Elf (+2 to any one ability)</option>
+						<option value="halforc">Half-Orc (+2 to any one ability)</option>
+						<option value="elf">Elf</option>
+						<option value="dwarf">Dwarf</option>
+						<option value="halfling">Halfling</option>
+						<option value="gnome">Gnome</option>
+					</optgroup>
+					<optgroup label="Featured Races">
+						<option value="aasimar">Aasimar</option>
+						<option value="catfolk">Catfolk</option>
+						<option value="dhampir">Dhampir</option>
+						<option value="drow">Drow</option>
+						<option value="drownoble">Drow Noble</option>
+						<option value="fetchling">Fetchling</option>
+						<option value="goblin">Goblin</option>
+						<option value="hobgoblin">Hobgoblin</option>
+						<option value="ifrit">Ifrit</option>
+						<option value="kobold">Kobold</option>
+						<option value="orc">Orc</option>
+						<option value="oread">Oread</option>
+						<option value="ratfolk">Ratfolk</option>
+						<option value="sylph">Sylph</option>
+						<option value="tengu">Tengu</option>
+						<option value="tiefling">Tiefling</option>
+						<option value="undine">Undine</option>
+					</optgroup>
+					<optgroup label="Uncommon Races">
+						<option value="changeling">Changeling</option>
+						<option value="duergar">Duergar</option>
+						<option value="gillman">Gillman</option>
+						<option value="grippli">Grippli</option>
+						<option value="kitsune">Kitsune</option>
+						<option value="merfolk">Merfolk</option>
+						<option value="nagaji">Nagaji</option>
+						<option value="samsaran">Samsaran</option>
+						<option value="strix">Strix</option>
+						<option value="suli">Suli</option>
+						<option value="svirfneblin">Svirfneblin</option>
+						<option value="vanara">Vanara</option>
+						<option value="vishkanya">Vishkanya</option>
+						<option value="wayang">Wayang</option>
+					</optgroup>
 					<option value="other">Other</option>
 				</select>
 			</div>
@@ -205,7 +242,7 @@
 			</table>
 			<p>Total Points: <span id="pointTotal">0</span></p>
 			<input onClick="this.select();" type="text" id="printout" name="printout" value="STR: 10 DEX: 10 CON: 10 INT: 10 WIS: 10 CHA: 10" readonly="true"/>
-			<p><a href="https://github.com/griffenx/Pathfinder-Point-Buy-Calculator">Source</a> | Made by Sarah 😈 aka <a href="https://iamvishnu.net">IAMVISHNU</a></p>
+			<p><a href="https://github.com/griffenx/Pathfinder-Point-Buy-Calculator">Source</a> | Made by Sarah 😈 (<a href="https://iamvishnu.net">IAMVISHNU</a>)</p>
 
 		</div>
 	</body>
