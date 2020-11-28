@@ -111,7 +111,27 @@ p img {
 	filter: invert(100%);
 }
 
-#copyright, #copyright a {
+.copyright, .copyright a {
 	color: #777;
 	font-style: italic;
+}
+
+#learnmore {
+	padding: 5px;
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size:8pt;
+}
+
+.lmenabled {
+	background: #AA2929;
+}
+
+.lmenabled:hover {
+	background: #D55555;
+}
+
+.lmdisabled {
+	background: #aaa;
 }

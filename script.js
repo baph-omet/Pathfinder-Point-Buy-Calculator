@@ -1,67 +1,49 @@
-var races = {
-	custom: [0,0,0,0,0,0],
-	elf: [0,2,-2,2,0,0],
-	dwarf: [0,0,2,0,2,-2],
-	halfling: [-2,2,0,0,0,2],
-	gnome: [-2,0,2,0,0,2],
-	aasimar: [0,0,0,0,2,2],
-    tiefling: [0,2,0,2,0,-2],
-	catfolk: [0,2,0,0,-2,2],
-	changeling: [0,0,-2,0,2,2],
-	dhampir: [0,2,-2,0,0,2],
-	drow: [0,2,-2,0,0,2],
-	drownoble: [0,4,-2,2,2,2],
-	duergar: [0,0,2,0,2,-4],
-	fetchling: [0,2,0,0,-2,2],
-	gillman: [0,0,2,0,-2,2],
-	goblin: [-2,4,0,0,0,-2],
-	grippli: [-2,2,0,0,2,0],
-	hobgoblin: [0,2,2,0,0,0],
-	ifrit: [0,2,0,0,-2,2],
-	kitsune: [-2,2,0,0,0,2],
-	kobold: [-4,2,-2,0,0,0],
-	merfolk: [0,2,2,0,0,2],
-	nagaji: [2,0,0,-2,0,2],
-	orc: [4,0,0,-2,-2,-2],
-	oread: [2,0,0,0,2,-2],
-	ratfolk: [-2,2,0,2,0,0],
-	samsaran: [0,0,-2,2,2,0],
-	strix: [0,2,0,0,0,-2],
-	suli: [2,0,0,-2,0,2],
-	svirfneblin: [-2,2,0,0,2,-4],
-	sylph: [0,2,-2,2,0,0],
-	tengu: [0,2,-2,0,2,0],
-	undine: [-2,2,0,0,2,0],
-	vanara: [0,2,0,0,2,-2],
-	vishkanya: [0,2,0,0,-2,2],
-	wayang: [0,2,0,2,-2,0]
-};
-
-var abilities = ["STR","DEX","CON","INT","WIS","CHA"];
-
 function ApplyRacialMod() {
 	var raceName = document.getElementById("raceSelector").value.replace(" ","").toLowerCase();
-	var nameFound = false;
-	for (var prop in races) {
-		if (prop + "" == raceName) {
-			nameFound = true;
-			break;
-		}
-	}
-	if (!nameFound) raceName = "custom";
 	
-	var race = races[raceName];
-	for (var i = 0; i < abilities.length; i++) {
+	var race = GetRaceObj(raceName);
+	var lm = document.getElementById("learnmore");
+	if (race.link != null) {
+		lm.className = "lmenabled";
+		lm.setAttribute("href", race.link);
+		lm.disabled = false;
+	} else {
+		lm.className = "lmdisabled";
+		lm.removeAttribute("href");
+		lm.disabled = true;
+	}
+	for (var i = 0; i < abilityAbbr.length; i++) {
 		var inputBox = document.getElementsByName("racemod")[i];
-		inputBox.value = race[i];
-		inputBox.disabled = raceName != "custom";
+		if (race.mods == null || race.mods[i] == null) {
+			inputBox.value = 0;
+		} else {
+			inputBox.value = race.mods[i];
+		}
+
+		inputBox.disabled = race.modType == modifierTypes.preset || (race.mods != null && race.mods[i] == null);
+		
+	    var raw = document.getElementsByName("raw")[i];
+		if (race.mods != null && race.mods[i] == null) {
+			raw.value = 10;
+			raw.disabled = true;
+			CalculateTotalPoints();
+		} else raw.disabled = false;
 	}
 	
 	CalculateTotalValues();
 }
 
+function GetRaceObj(name) {
+	for (var i = 0; i < races.length; i++) {
+		for (var j = 0; j < races[i].races.length; j++) {
+			var r = races[i].races[j];
+			if (r.name.toLowerCase() == name.toLowerCase()) return r;
+		}
+	} return null;
+}
+
 function CalculateTotalValues() {
-	for (var i = 0; i < abilities.length; i++) {
+	for (var i = 0; i < abilityAbbr.length; i++) {
 		var total = 
 			parseInt(document.getElementsByName("raw")[i].value) 
 			+ parseInt(document.getElementsByName("racemod")[i].value);
@@ -78,7 +60,7 @@ function GetMod(score) {
 }
 
 function CalculateModifiers() {
-	for (var i = 0; i < abilities.length; i++) {
+	for (var i = 0; i < abilityAbbr.length; i++) {
 		document.getElementsByClassName("rawmod")[i].innerText = 
 			GetMod(parseInt(document.getElementsByName("raw")[i].value));
 		document.getElementsByClassName("totalmod")[i].innerText = 
@@ -100,7 +82,7 @@ function GetPointCost(score) {
 
 function CalculateTotalPoints() {
 	total = 0;
-	for (var i = 0; i < abilities.length; i++) total += GetPointCost(parseInt(document.getElementsByName("raw")[i].value));
+	for (var i = 0; i < abilityAbbr.length; i++) total += GetPointCost(parseInt(document.getElementsByName("raw")[i].value));
 	document.getElementById("pointTotal").innerText = total;
 }
 
@@ -111,7 +93,21 @@ function PurchaseChange() {
 
 function SetPrintout() {
 	var text = "";
-	for (var i = 0; i < abilities.length; i++)
-		text += abilities[i] + ": " + document.getElementsByClassName("total")[i].innerText + " ";
+	for (var i = 0; i < abilityAbbr.length; i++)
+		text += abilityAbbr[i] + ": " + document.getElementsByClassName("total")[i].innerText + " ";
 	document.getElementById("printout").value = text;
+}
+
+function LoadRaces() {
+	for (var i = 0; i < races.length; i++) {
+		var group = races[i];
+		var optgroup = document.createElement("optgroup");
+		optgroup.setAttribute("label", group.name);
+		for (var j = 0; j < group.races.length; j++) {
+			var race = group.races[j];
+			var opt = document.createElement("option");
+			opt.innerText = race.name;
+			optgroup.appendChild(opt);
+		} document.getElementById("raceSelector").appendChild(optgroup);
+	}
 }
